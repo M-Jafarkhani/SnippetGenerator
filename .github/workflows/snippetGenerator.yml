@@ -1,0 +1,41 @@
+name: Snippet Generator
+
+on:
+  push:
+    branches:
+      - SHACL
+    paths:
+      - 'metadata4ing.ttl'
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          ref: SHACL 
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Remove all files in folder C
+        run: rm -rf snippets/*
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt || echo "No dependencies needed"
+
+      - name: Run snippetGenerator.py
+        run: python snippetGenerator.py
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git add .
+          git diff --quiet && git diff --staged --quiet || git commit -m "Automated update by Snippet Generator"
+          git push
