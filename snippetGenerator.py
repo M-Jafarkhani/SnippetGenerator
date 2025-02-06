@@ -1,6 +1,7 @@
 from rdflib import Graph, URIRef, RDF, BNode, OWL
 from rdflib.namespace import RDFS
 from collections import deque
+import os
 
 class SnippetGenerator:
     def __init__(self, graph, query):
@@ -79,6 +80,8 @@ if __name__ == "__main__":
     definitions = set()
     for a, _, _ in graph.triples((None, RDF.type, None)):
         definitions.add(SnippetGenerator.extract_name_from_uri(str(a)))
+    if not os.path.exists('snippets'):
+        os.makedirs('snippets')
     for query in definitions:
         if query:
             processor = SnippetGenerator(graph, query)
