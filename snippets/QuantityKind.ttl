@@ -1,0 +1,21 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+qudt:QuantityKind a owl:Class ;
+    rdfs:comment "A <b>Quantity Kind</b> is any observable property that can be  measured and quantified numerically. Familiar examples include physical properties such as length, mass, time, force, energy, power, electric charge, etc. Less familiar examples include currency, interest rate, price to earning ratio, and information capacity."@en ;
+    rdfs:subClassOf schema:Intangible ;
+    skos:definition "Kind of quantity, i.e., a physical/chemical quantity from a controlled vocabulary, such as QUDT, IEC, or EMMO"@en ;
+    skos:editorialNote "changed by m4i: added german labels, added skos:prefLabel, harmonized spelling to OBO naming conventions (lower case, space separated)"@en ;
+    skos:note "we recommend using a persistent identifier resolving to a persistent URL"@en ;
+    skos:prefLabel "Größenart"@de,
+        "quantity kind"@en .
+
+schema:Intangible a owl:Class ;
+    skos:definition "A utility class that serves as the umbrella for a number of 'intangible' things such as quantities, structured values, etc."@en ;
+    skos:editorialNote "changed by m4i: added skos:prefLabel, added german label, harmonized spelling to OBO naming conventions (lower case, space separated)"@en ;
+    skos:prefLabel "Ungreifbares"@de,
+        "intangible"@en .
+

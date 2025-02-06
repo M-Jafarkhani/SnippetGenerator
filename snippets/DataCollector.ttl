@@ -1,0 +1,15 @@
+@prefix m4i: <http://w3id.org/nfdi4ing/metadata4ing#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+m4i:DataCollector a owl:NamedIndividual,
+        prov:Role ;
+    rdfs:seeAlso "https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/contributorType/#datacollector"^^xsd:anyURI ;
+    skos:definition "Person/institution responsible for finding or gathering/collecting data under the guidelines of the author(s) or Principal Investigator (PI)"@en ;
+    skos:prefLabel "Datenerfasser*in"@de,
+        "data collector"@en ;
+    skos:scopeNote "May also be used when crediting survey conductors, interviewers, event or condition observers, or persons responsible for monitoring key instrument data."@en .
+

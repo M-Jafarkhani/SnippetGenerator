@@ -1,0 +1,21 @@
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+obo:BFO_0000050 a owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    owl:inverseOf obo:BFO_0000051 ;
+    skos:definition "a core relation that holds between a part and its whole"@en ;
+    skos:editorialNote "changed by m4i: added german labels, added skos:prefLabel"@en,
+        "changed by m4i: copied obo:IAO_0000115 to a skos:definition"@en ;
+    skos:prefLabel "Teil von"@de,
+        "part of"@en .
+
+obo:BFO_0000051 a owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    skos:definition "a core relation that holds between a whole and its part"@en ;
+    skos:editorialNote "changed by m4i: added german labels, added skos:prefLabel"@en,
+        "changed by m4i: copied obo:IAO_0000115 to a skos:definition"@en ;
+    skos:prefLabel "hat Teil"@de,
+        "has part"@en .
+

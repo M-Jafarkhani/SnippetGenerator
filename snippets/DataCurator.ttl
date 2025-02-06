@@ -1,0 +1,17 @@
+@prefix m4i: <http://w3id.org/nfdi4ing/metadata4ing#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+m4i:DataCurator a owl:NamedIndividual,
+        prov:Role ;
+    rdfs:seeAlso "https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/contributorType/#datacurator"^^xsd:anyURI ;
+    skos:definition "Person tasked with reviewing, enhancing, cleaning, or standardizing metadata and the associated data submitted for storage, use, and maintenance within a data centre or repository"@en ;
+    skos:prefLabel "Datenkurator*in"@de,
+        "data curator"@en ;
+    skos:scopeNote """While the DataManager is concerned with digital maintenance, the DataCurator's role encompasses quality assurance focused on content and metadata. DataCurator responsibilities include: checking completeness of the submitted dataset against the content as described by the submitter; verifying standard metadata according to the applicable system or schema; adding or verifying specialized metadata to add value and ensure access across disciplines; and determining how the metadata might map to search engines, database products, and automated feeds. Repository managers as well as data librarians working in the repository fall within this category. 
+
+Example: https://doi.org/10.20375/0000-000D-1D1F-2"""@en .
+

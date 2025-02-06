@@ -1,0 +1,35 @@
+@prefix m4i: <http://w3id.org/nfdi4ing/metadata4ing#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+m4i:projectReferenceID a owl:DatatypeProperty ;
+    rdfs:domain schema:Project ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf m4i:identifier ;
+    skos:definition "Eine alphanumerische ID zur Referenzierung eines Projekts. Wir empfehlen die Nutzung einer auch außerhalb der teilnehmenden Institutionen verständlichen ID, am besten persistent und mit einem Resolving-System verknüpft, wie bspw. die [Research Activity Identifier (RAiD)](https://raid.org/) oder eine von einem Förderer zugewiesene ID (siehe bspw. die [DFG-Projektendatenbank](https://gepris.dfg.de/gepris/OCTOPUS) oder die [EU-Projektendatenbank](https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/projects-results))."@de,
+        "An alphanumeric identifier for a project. We recommend using an identifier which is understandable outside the involved institutions and possibly resolvable and persistent, such as the [Research Activity Identifier (RAiD)](https://raid.org/) or a funder-given ID (see for example the [DFG project database](https://gepris.dfg.de/gepris/OCTOPUS) or the [EU project database](https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/projects-results))."@en ;
+    skos:prefLabel "hat Projekt-ID"@de,
+        "has project ID"@en .
+
+m4i:identifier a owl:DatatypeProperty ;
+    rdfs:domain owl:Thing ;
+    rdfs:range xsd:string ;
+    skos:altLabel "besitzt eindeutigen Identifikator"@de,
+        "wird durch Identifikator repräsentiert"@de,
+        "has unique identifier"@en,
+        "is represented through identifier"@en ;
+    skos:definition "A systematically built alphanumeric string that identifies a unique object (e.g. a person, a publication, an organisation, a research activity, a sample, etc.) or a unique class of objects."@en ;
+    skos:prefLabel "hat Identifikator"@de,
+        "has identifier"@en .
+
+schema:Project a owl:Class ;
+    rdfs:comment "Ein typischerweise kollektives Unterfangen zum Erreichen eines vorab geplanten Ziels"@de,
+        "An enterprise (potentially individual but typically collaborative), planned to achieve a particular aim"@en ;
+    skos:editorialNote "changed by m4i: added German definition, added language tag to English definition, shortened definition"@en,
+        "changed by m4i: use of skos:prefLabel instead of rdfs:label, added German label, added language tag to English label, harmonized spelling to OBO naming conventions (lower case, space separated)"@en ;
+    skos:prefLabel "Projekt"@de,
+        "project"@en .
+

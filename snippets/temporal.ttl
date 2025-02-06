@@ -1,0 +1,18 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+schema:temporal a owl:DatatypeProperty ;
+    rdfs:range schema:DateTime ;
+    skos:definition "The 'temporal' property can be used in cases where more specific properties (e.g., dateCreated, dateModified, datePublished) are not known to be appropriate"@en ;
+    skos:editorialNote "changed by m4i: added different skos:prefLabel, added german label"@en ;
+    skos:prefLabel "hat Zeitstempel"@de,
+        "has timestamp"@en .
+
+schema:DateTime a rdfs:Datatype ;
+    skos:definition "A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm] (see Chapter 5.4 of ISO 8601)"@en ;
+    skos:editorialNote "changed by m4i: added skos:prefLabel, added german label, harmonized spelling to OBO naming conventions (lower case, space separated)"@en ;
+    skos:prefLabel "Datum mit Zeit"@de,
+        "date with time"@en .
+

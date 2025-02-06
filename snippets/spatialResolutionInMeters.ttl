@@ -1,0 +1,15 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+dcat:spatialResolutionInMeters a owl:DatatypeProperty ;
+    rdfs:range xsd:decimal ;
+    skos:definition "Minimum spatial separation resolvable in a dataset, measured in metres."@en ;
+    skos:editorialNote "changed by m4i: added skos:prefLabel, added german labels, removed redundant notes, removed other languages than english in comment, label, changeNote and definition, adjusted spelling conform to SI"@en ;
+    skos:prefLabel "räumliche Auflösung (in Metern)"@de,
+        "spatial resolution (in metres)"@en ;
+    skos:scopeNote "Alternative spatial resolutions might be provided as different dataset distributions."@en,
+        "If the dataset is an image or grid this should correspond to the spacing of items. For other kinds of spatial dataset, this property will usually indicate the smallest distance between items in the dataset."@en .
+

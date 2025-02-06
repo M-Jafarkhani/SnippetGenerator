@@ -1,0 +1,11 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ssn: <http://www.w3.org/ns/ssn/> .
+
+ssn:implements a owl:ObjectProperty ;
+    skos:definition "Beziehung zwischen einer Entität, die eine Prozedur in einer ausführbaren Weise implementiert, und der Prozedur (einem Algorithmus, einer Prozedur oder einer Methode)."@de,
+        "Relation between an entity that implements a Procedure in some executable way and the Procedure (an algorithm, procedure or method)."@en ;
+    skos:editorialNote "changed by m4i: added skos:definition, added german definition"@en ;
+    skos:prefLabel "implementiert"@de,
+        "implements"@en .
+

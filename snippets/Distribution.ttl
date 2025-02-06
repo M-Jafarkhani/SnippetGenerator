@@ -1,0 +1,12 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+dcat:Distribution a owl:Class ;
+    rdfs:isDefinedBy dcat: ;
+    skos:definition "A specific representation of a dataset. A dataset might be available in multiple serializations that may differ in various ways, including natural language, media-type or format, schematic organization, temporal and spatial resolution, level of detail or profiles (which might specify any or all of the above)."@en ;
+    skos:editorialNote "changed by m4i: added skos:prefLabel, added german labels, removed redundant notes, removed other languages than english in comment, label, changeNote and definition"@en ;
+    skos:prefLabel "Verteilung"@de,
+        "distribution"@en .
+

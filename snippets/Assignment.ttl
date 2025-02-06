@@ -1,0 +1,85 @@
+@prefix emmo: <http://emmo.info/emmo#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix pims-ii: <http://www.molmod.info/semantics/pims-ii.ttl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+pims-ii:isAssignmentFor a owl:ObjectProperty ;
+    rdfs:domain pims-ii:Assignment ;
+    skos:broader pims-ii:isRepresentamenFor ;
+    skos:definition "(o isAssignment for d) means that d: x = y is an assignment that refers to o; e.g., x may be temperature, y may be a temperature value, and o may be an object of which the temperature has been measured or some other context to which the assignment refers"@en ;
+    skos:editorialNote "changed by m4i: added skos:prefLabel, adjusted german labels, harmonized spelling to OBO naming conventions (lower case, space separated)" ;
+    skos:prefLabel "ist Zuweisung in Bezug auf"@de,
+        "is assignment for"@en .
+
+pims-ii:isValueInAssignment a owl:ObjectProperty ;
+    rdfs:domain pims-ii:Value ;
+    rdfs:range pims-ii:Assignment ;
+    skos:broader pims-ii:isSemioticallyConstitutiveOf ;
+    skos:definition "(y isValueInAssignment a) means that a: x = y is an assignment where the value y is assigned to a variable x"@en ;
+    skos:editorialNote "changed by m4i: added skos:prefLabel, adjusted german labels, harmonized spelling to OBO naming conventions (lower case, space separated)" ;
+    skos:prefLabel "ist Wert in Zuweisung"@de,
+        "is value in assignment"@en .
+
+pims-ii:isVariableInAssignment a owl:ObjectProperty ;
+    rdfs:domain pims-ii:Variable ;
+    rdfs:range pims-ii:Assignment ;
+    skos:broader pims-ii:isSemioticallyConstitutiveOf ;
+    skos:definition "(x isVariableInAssignment a) means that a: x = y is an assignment where a value y is assigned to the variable x"@en ;
+    skos:editorialNote "changed by m4i: added skos:prefLabel, adjusted german labels, harmonized spelling to OBO naming conventions (lower case, space separated)" ;
+    skos:prefLabel "ist Variable in Zuweisung"@de,
+        "is variable in assignment"@en .
+
+pims-ii:isAdmissibleValueFor a owl:ObjectProperty ;
+    rdfs:domain pims-ii:Value ;
+    rdfs:range pims-ii:Variable ;
+    skos:definition "(x isAdmissibleValueFor y) means that x is a value that can be assigned to the variable y; subsumption under msIPIRIR is explained as follows: There is a sign z for the variable y (where z is the range of admissible values of y), for which in turn there is another sign z' (where z' lists members of z, explicitly including x) of which x is a part"@en ;
+    skos:editorialNote "changed by m4i: added skos:prefLabel, adjusted german labels, harmonized spelling to OBO naming conventions (lower case, space separated)" ;
+    skos:prefLabel "ist zulässiger Wert für"@de,
+        "is admissible value for"@en .
+
+pims-ii:Assignment a owl:Class ;
+    rdfs:comment "Assignment, i.e., a data item by which a value is assigned to a variable with respect to a particular referent (e.g., T = 200 K for substance o as it was measured in a particular cognitive step); therein, T is the variable, related to the assignment by m4i:hasVariable, 200 K is the value, related to the assignment by m4i:hasValue, and o is the referent, related to the assignment by isAssignmentFor"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty [ owl:inverseOf pims-ii:isValueInAssignment ] ;
+            owl:someValuesFrom pims-ii:Value ],
+        [ a owl:Restriction ;
+            owl:onProperty [ owl:inverseOf pims-ii:isVariableInAssignment ] ;
+            owl:someValuesFrom pims-ii:Variable ],
+        [ a owl:Restriction ;
+            owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty pims-ii:isAssignmentFor ],
+        schema:Intangible ;
+    skos:editorialNote "changed by m4i: added skos:prefLabel, adjusted german labels,  harmonized spelling to OBO naming conventions (lower case, space separated)" ;
+    skos:prefLabel "Zuweisung"@de,
+        "assignment"@en .
+
+pims-ii:Variable a owl:Class ;
+    rdfs:subClassOf schema:Intangible ;
+    owl:equivalentClass [ a owl:Restriction ;
+            owl:onProperty [ owl:inverseOf pims-ii:isAdmissibleValueFor ] ;
+            owl:someValuesFrom pims-ii:Value ] ;
+    skos:closeMatch emmo:EMMO_1eed0732_e3f1_4b2c_a9c4_b4e75eeb5895 ;
+    skos:definition "Variable, i.e., a conventional that is employed for something to which values can be assigned (this may include different notations for the same variable including, e.g., computational representations); this is to be understood very generally, e.g., a variable may be an array or set of elements or have another kind of internal structure"@en ;
+    skos:editorialNote "changed by m4i: added skos:prefLabel, adjusted german labels, harmonized spelling to OBO naming conventions (lower case, space separated)" ;
+    skos:prefLabel "Variable"@de,
+        "variable"@en .
+
+schema:Intangible a owl:Class ;
+    skos:definition "A utility class that serves as the umbrella for a number of 'intangible' things such as quantities, structured values, etc."@en ;
+    skos:editorialNote "changed by m4i: added skos:prefLabel, added german label, harmonized spelling to OBO naming conventions (lower case, space separated)"@en ;
+    skos:prefLabel "Ungreifbares"@de,
+        "intangible"@en .
+
+pims-ii:Value a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty pims-ii:isAdmissibleValueFor ],
+        schema:Intangible ;
+    skos:definition "Value, i.e., an articulation that is by social convention understood to be potentially assignable to a variable"@en ;
+    skos:editorialNote "changed by m4i: added skos:prefLabel, adjusted german labels, harmonized spelling to OBO naming conventions (lower case, space separated)" ;
+    skos:prefLabel "Wert"@de,
+        "value"@en .
+
