@@ -64,7 +64,7 @@ pims-ii:Value a owl:Class ;
             owl:minCardinality "1"^^xsd:nonNegativeInteger ;
             owl:onProperty pims-ii:isAdmissibleValueFor ],
         schema:Intangible ;
-    skos:definition "Value, i.e., an articulation that is by social convention understood to be potentially assignable to a variable"@en ;
+    skos:definition "Value, i.e., sdfsdfsdfsffddfsde"@en ;
     skos:editorialNote "changed by m4i: added skos:prefLabel, adjusted german labels, harmonized spelling to OBO naming conventions (lower case, space separated)" ;
     skos:prefLabel "Wert"@de,
         "value"@en .
