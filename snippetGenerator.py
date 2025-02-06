@@ -16,6 +16,19 @@ class SnippetGenerator:
             self.final_graph.bind(prefix, uri)
     
     @staticmethod
+    def filter_case_insensitive_duplicates(strings):
+        seen = set()
+        filtered = set()
+
+        for s in strings:
+            lower_s = s.lower()
+            if lower_s not in seen:
+                seen.add(lower_s)
+                filtered.add(s)
+
+        return filtered
+
+    @staticmethod
     def extract_name_from_uri(uri):
         if not isinstance(uri, str):
             return uri
@@ -77,11 +90,15 @@ if __name__ == "__main__":
     graph_file = "metadata4ing.ttl"
     graph = Graph()
     graph.parse(graph_file, format="ttl")
+    
     definitions = set()
     for a, _, _ in graph.triples((None, RDF.type, None)):
         definitions.add(SnippetGenerator.extract_name_from_uri(str(a)))
+    definitions = SnippetGenerator.filter_case_insensitive_duplicates(definitions)
+    
     if not os.path.exists('snippets'):
         os.makedirs('snippets')
+    
     for query in definitions:
         if query:
             processor = SnippetGenerator(graph, query)
