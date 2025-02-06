@@ -81,7 +81,7 @@
                        <https://doi.org/10.5281/zenodo.4846313> ,
                        <https://doi.org/10.1504/IJMSO.2020.107792> ;
     rdfs:comment """
-Metadata4Ing defines classes and properties or reuses such classes and properties from other ontologies to describe research processes and research data management in NFDI4Ing.  
+Metadata4Ing defines classes and properties or  such classes and properties from other ontologies to describe research processes and research data management in NFDI4Ing.  
 New concepts and properties are located in the namespace of Metadata4Ing.  
 Metadata4Ing does not import complete ontologies for the sake of relevance, readability, understandability and usability by and for engineers.  
 Instead, it tries to make re-use of existing identifiers for classes and properties by re-using all or a relevant subset of the axioms from the original ontology.  
