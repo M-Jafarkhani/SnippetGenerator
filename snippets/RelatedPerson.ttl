@@ -1,0 +1,15 @@
+@prefix m4i: <http://w3id.org/nfdi4ing/metadata4ing#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+m4i:RelatedPerson a owl:NamedIndividual,
+        prov:Role ;
+    rdfs:seeAlso "https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/contributorType/#relatedperson"^^xsd:anyURI ;
+    skos:definition "A person without a specifically defined role in the development of the resource, but who is someone the author wishes to recognize"@en ;
+    skos:prefLabel "zugehörige Person"@de,
+        "related person"@en ;
+    skos:scopeNote "This person could be an author's intellectual mentor, a person providing intellectual leadership in the discipline or subject domain, etc."@en .
+

@@ -1,0 +1,20 @@
+@prefix cr: <http://mlcommons.org/croissant/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+cr:Field a owl:Class ;
+    rdfs:subClassOf schema:Intangible ;
+    skos:definition "Ein Bestandteil der Struktur eines RecordSets wie z.B. eine Spalte einer Tabelle"@de,
+        "A component of the structure of a RecordSet, such as a column of a table."@en ;
+    skos:editorialNote "changed by m4i: added german labels, added skos:prefLabel and skos:definition"@en ;
+    skos:prefLabel "Feld"@de,
+        "Field"@en .
+
+schema:Intangible a owl:Class ;
+    skos:definition "A utility class that serves as the umbrella for a number of 'intangible' things such as quantities, structured values, etc."@en ;
+    skos:editorialNote "changed by m4i: added skos:prefLabel, added german label, harmonized spelling to OBO naming conventions (lower case, space separated)"@en ;
+    skos:prefLabel "Ungreifbares"@de,
+        "intangible"@en .
+

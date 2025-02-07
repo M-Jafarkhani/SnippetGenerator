@@ -1,0 +1,51 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+dcat:inSeries a owl:ObjectProperty ;
+    rdfs:comment "Normally, child datasets in dataset series are represented as dcat:Dataset. The use of dcat:Distribution for typing child datasets is however recognized as a possible alternative, whenever it addresses more effectively the requirements of a given application scenario."@en ;
+    rdfs:domain dcat:Dataset ;
+    rdfs:isDefinedBy dcat: ;
+    rdfs:range dcat:DatasetSeries ;
+    rdfs:subPropertyOf obo:BFO_0000050 ;
+    skos:definition "A dataset series of which the dataset is part."@en ;
+    skos:editorialNote "changed by m4i: changed subproperty relation from DCTerms to OBO_000050 added skos:prefLabel, added german labels,  removed redundant notes, extracted from DCAT3-Documentation https://www.w3.org/TR/vocab-dcat-3/#Class:Dataset_Series"@en ;
+    skos:prefLabel "in Serie"@de,
+        "in series"@en .
+
+obo:BFO_0000050 a owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    owl:inverseOf obo:BFO_0000051 ;
+    skos:definition "a core relation that holds between a part and its whole"@en ;
+    skos:editorialNote "changed by m4i: added german labels, added skos:prefLabel"@en,
+        "changed by m4i: copied obo:IAO_0000115 to a skos:definition"@en ;
+    skos:prefLabel "Teil von"@de,
+        "part of"@en .
+
+obo:BFO_0000051 a owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    skos:definition "a core relation that holds between a whole and its part"@en ;
+    skos:editorialNote "changed by m4i: added german labels, added skos:prefLabel"@en,
+        "changed by m4i: copied obo:IAO_0000115 to a skos:definition"@en ;
+    skos:prefLabel "hat Teil"@de,
+        "has part"@en .
+
+dcat:DatasetSeries a owl:Class ;
+    rdfs:isDefinedBy dcat: ;
+    rdfs:subClassOf dcat:Dataset ;
+    skos:definition "A collection of datasets that are published separately, but share some common characteristics that groups them."@en ;
+    skos:editorialNote "changed by m4i: added skos:prefLabel, added german labels, removed redundant notes, extracted from DCAT3-Documentation https://www.w3.org/TR/vocab-dcat-3/#Class:Dataset_Series"@en ;
+    skos:prefLabel "Datensatzserie"@de,
+        "dataset series"@en .
+
+dcat:Dataset a owl:Class ;
+    rdfs:comment "A collection of data, published or curated by a single source, and available for access or download in one or more representations."@en ;
+    rdfs:isDefinedBy dcat: ;
+    skos:editorialNote "changed by m4i: added skos:prefLabel, added german labels, removed redundant notes, removed other languages than english in comment, label, changeNote and definition"@en ;
+    skos:prefLabel "Datensatz"@de,
+        "dataset"@en ;
+    skos:scopeNote "The notion of dataset in DCAT is broad and inclusive, with the intention of accommodating resource types arising from all communities. Data comes in many forms including numbers, text, pixels, imagery, sound and other multi-media, and potentially other types, any of which might be collected into a dataset."@en,
+        "This class describes the conceptual dataset. One or more representations might be available, with differing schematic layouts and formats or serializations."@en .
+
