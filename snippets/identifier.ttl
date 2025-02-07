@@ -1,0 +1,17 @@
+@prefix m4i: <http://w3id.org/nfdi4ing/metadata4ing#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+m4i:identifier a owl:DatatypeProperty ;
+    rdfs:domain owl:Thing ;
+    rdfs:range xsd:string ;
+    skos:altLabel "besitzt eindeutigen Identifikator"@de,
+        "wird durch Identifikator repräsentiert"@de,
+        "has unique identifier"@en,
+        "is represented through identifier"@en ;
+    skos:definition "A systematically built alphanumeric string that identifies a unique object (e.g. a person, a publication, an organisation, a research activity, a sample, etc.) or a unique class of objects."@en ;
+    skos:prefLabel "hat Identifikator"@de,
+        "has identifier"@en .
+

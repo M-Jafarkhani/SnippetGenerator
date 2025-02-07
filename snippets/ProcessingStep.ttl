@@ -1,0 +1,30 @@
+@prefix m4i: <http://w3id.org/nfdi4ing/metadata4ing#> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix pims-ii: <http://www.molmod.info/semantics/pims-ii.ttl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+m4i:ProcessingStep a owl:Class ;
+    rdfs:subClassOf prov:Activity ;
+    skos:definition "Specific action undertaken during research"@en ;
+    skos:prefLabel "Arbeitsschritt"@de,
+        "processing step"@en .
+
+obo:BFO_0000015 a owl:Class ;
+    skos:closeMatch pims-ii:Process ;
+    skos:definition "Process, i.e., a physical entity with a temporal evolution that 'has a meaning for the ontologist'"@en ;
+    skos:editorialNote "changed by m4i: added german labels, added skos:prefLabel"@en ;
+    skos:prefLabel "Prozess"@de,
+        "process"@en .
+
+prov:Activity a owl:Class ;
+    rdfs:subClassOf obo:BFO_0000015 ;
+    skos:closeMatch pims-ii:Action ;
+    skos:definition "Eine Aktivität ist etwas, das über einen Zeitraum und mit oder an Entitäten erfolgt; dazu kann das Verbrauchen, Verarbeiten, Transformieren, Modifizieren, Relokalisieren, Verwenden, oder die Genese von Entitäten gehören."@de,
+        "An activity is something that occurs over a period of time and acts upon or with entities; it may include consuming, processing, transforming, modifying, relocating, using, or generating entities."@en ;
+    skos:editorialNote "changed by m4i: added skos:prefLabel, added german label, harmonized spelling to OBO naming conventions (lower case, space separated)"@en ;
+    skos:prefLabel "Aktivität"@de,
+        "activity"@en .
+

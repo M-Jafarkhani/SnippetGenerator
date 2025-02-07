@@ -1,0 +1,10 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix schema: <https://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+schema:Intangible a owl:Class ;
+    skos:definition "A utility class that serves as the umbrella for a number of 'intangible' things such as quantities, structured values, etc."@en ;
+    skos:editorialNote "changed by m4i: added skos:prefLabel, added german label, harmonized spelling to OBO naming conventions (lower case, space separated)"@en ;
+    skos:prefLabel "Ungreifbares"@de,
+        "intangible"@en .
+

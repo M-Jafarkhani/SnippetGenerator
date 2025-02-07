@@ -1,0 +1,96 @@
+@prefix emmo: <http://emmo.info/emmo#> .
+@prefix m4i: <http://w3id.org/nfdi4ing/metadata4ing#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix pims-ii: <http://www.molmod.info/semantics/pims-ii.ttl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix si: <https://ptb.de/si/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+m4i:hasAdmissibleUnit a owl:ObjectProperty ;
+    rdfs:comment "redundant information: applicable unit can be deduced from quantity kind. If one wants to enforce the use of a specific unit, use a SHACL constraint."^^xsd:string ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( qudt:QuantityKind m4i:NumericalVariable ) ] ;
+    rdfs:range qudt:Unit ;
+    owl:deprecated true ;
+    owl:inverseOf pims-ii:isAdmissibleUnitFor ;
+    skos:definition "DEPRECATED (x hasAdmissibleUnit y) means that y is a unit that can be associated with the variable x"@en ;
+    skos:prefLabel "hat als zulässige Einheit"@de,
+        "has admissible unit"@en .
+
+pims-ii:isAdmissibleUnitFor a owl:ObjectProperty ;
+    rdfs:comment "redundant information: admissible unit can be deduced from quantity kind. If one wants to enforce the use of a specific unit, use a SHACL contraint."^^xsd:string ;
+    rdfs:domain qudt:Unit ;
+    rdfs:range [ a owl:Class ;
+            owl:unionOf ( qudt:QuantityKind m4i:NumericalVariable ) ] ;
+    owl:deprecated true ;
+    skos:definition "DEPRECATED (x isAdmissibleUnitFor y) means that x is a unit that can be associated with the variable y; subsumption under msHPIPIR is explained as follows: There is a sign z for the variable y (where z is a description of admissible values of y) of which x is constitutive (and with which x hence overlaps)"@en ;
+    skos:editorialNote "changed by m4i: added skos:prefLabel, adjusted german labels, harmonized spelling to OBO naming conventions (lower case, space separated)" ;
+    skos:prefLabel "ist zulässige Einheit für"@de,
+        "is admissible unit for"@en .
+
+qudt:QuantityKind a owl:Class ;
+    rdfs:comment "A <b>Quantity Kind</b> is any observable property that can be  measured and quantified numerically. Familiar examples include physical properties such as length, mass, time, force, energy, power, electric charge, etc. Less familiar examples include currency, interest rate, price to earning ratio, and information capacity."@en ;
+    rdfs:subClassOf schema:Intangible ;
+    skos:definition "Kind of quantity, i.e., a physical/chemical quantity from a controlled vocabulary, such as QUDT, IEC, or EMMO"@en ;
+    skos:editorialNote "changed by m4i: added german labels, added skos:prefLabel, harmonized spelling to OBO naming conventions (lower case, space separated)"@en ;
+    skos:note "we recommend using a persistent identifier resolving to a persistent URL"@en ;
+    skos:prefLabel "Größenart"@de,
+        "quantity kind"@en .
+
+qudt:Unit a owl:Class ;
+    rdfs:subClassOf schema:Intangible ;
+    skos:closeMatch emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4,
+        pims-ii:MeasurementUnit ;
+    skos:definition "A unit of measure, or unit is a particular quantity value that has been chosen as a scale for measuring other quantities the same kind (more generally of equivalent dimension). For example, the meter is a quantity of length that has been rigorously defined and standardized by the BIPM (International Board of Weights and Measures). Any measurement of the length can be expressed as a number multiplied by the unit meter. More formally, the value of physical quanitity Q with respect to a unit (U) is expressed as the scalar multiple of a real number (n) and U, as Q = nU."@en ;
+    skos:editorialNote "changed by m4i: added skos:prefLabel, added German label, harmonized spelling to OBO naming conventions (lower case, space separated)"@en ;
+    skos:prefLabel "Einheit"@de,
+        "unit"@en .
+
+m4i:NumericalVariable a owl:Class ;
+    rdfs:subClassOf pims-ii:Variable ;
+    skos:closeMatch qudt:Quantity,
+        si:Real ;
+    skos:definition "Eine Variable, die eine Zahl als Wert erwartet"@de,
+        "A variable that expects a float or integer as a value"@en ;
+    skos:prefLabel "numerische Variable"@de,
+        "numerical variable"@en .
+
+pims-ii:Value a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty pims-ii:isAdmissibleValueFor ],
+        schema:Intangible ;
+    skos:definition "Value, i.e., sdfsdfsdfsffddfsde"@en ;
+    skos:editorialNote "changed by m4i: added skos:prefLabel, adjusted german labels, harmonized spelling to OBO naming conventions (lower case, space separated)" ;
+    skos:prefLabel "Wert"@de,
+        "value"@en .
+
+pims-ii:Variable a owl:Class ;
+    rdfs:subClassOf schema:Intangible ;
+    owl:equivalentClass [ a owl:Restriction ;
+            owl:onProperty [ owl:inverseOf pims-ii:isAdmissibleValueFor ] ;
+            owl:someValuesFrom pims-ii:Value ] ;
+    skos:closeMatch emmo:EMMO_1eed0732_e3f1_4b2c_a9c4_b4e75eeb5895 ;
+    skos:definition "Variable, i.e., a conventional that is employed for something to which values can be assigned (this may include different notations for the same variable including, e.g., computational representations); this is to be understood very generally, e.g., a variable may be an array or set of elements or have another kind of internal structure"@en ;
+    skos:editorialNote "changed by m4i: added skos:prefLabel, adjusted german labels, harmonized spelling to OBO naming conventions (lower case, space separated)" ;
+    skos:prefLabel "Variable"@de,
+        "variable"@en .
+
+pims-ii:isAdmissibleValueFor a owl:ObjectProperty ;
+    rdfs:domain pims-ii:Value ;
+    rdfs:range pims-ii:Variable ;
+    skos:definition "(x isAdmissibleValueFor y) means that x is a value that can be assigned to the variable y; subsumption under msIPIRIR is explained as follows: There is a sign z for the variable y (where z is the range of admissible values of y), for which in turn there is another sign z' (where z' lists members of z, explicitly including x) of which x is a part"@en ;
+    skos:editorialNote "changed by m4i: added skos:prefLabel, adjusted german labels, harmonized spelling to OBO naming conventions (lower case, space separated)" ;
+    skos:prefLabel "ist zulässiger Wert für"@de,
+        "is admissible value for"@en .
+
+schema:Intangible a owl:Class ;
+    skos:definition "A utility class that serves as the umbrella for a number of 'intangible' things such as quantities, structured values, etc."@en ;
+    skos:editorialNote "changed by m4i: added skos:prefLabel, added german label, harmonized spelling to OBO naming conventions (lower case, space separated)"@en ;
+    skos:prefLabel "Ungreifbares"@de,
+        "intangible"@en .
+

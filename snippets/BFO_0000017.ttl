@@ -1,0 +1,10 @@
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+obo:BFO_0000017 a owl:Class ;
+    skos:definition "To say that b is a realizable entity is to say that b is a specifically dependent continuant that inheres in some independent continuant which is not a spatial region and is of a type instances of which are realized in processes of a correlated type. (axiom label in BFO2 Reference: [058-002])" ;
+    skos:editorialNote "changed by m4i: added german labels, added skos:prefLabel"@en ;
+    skos:prefLabel "realisierbare Entität"@de,
+        "realizable entity"@en .
+

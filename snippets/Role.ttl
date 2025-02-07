@@ -1,0 +1,12 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+prov:Role a owl:Class ;
+    rdfs:isDefinedBy prov: ;
+    skos:definition "A role is the function of an entity or agent with respect to an activity, in the context of a usage, generation, invalidation, association, start, and end."@en ;
+    skos:editorialNote "changed by m4i: added german labels, added skos:prefLabel, added skos:definition, added german definition, added instances, harmonized spelling to OBO naming conventions (lower case, space separated)"@en ;
+    skos:prefLabel "Rolle des Akteurs"@de,
+        "role"@en .
+

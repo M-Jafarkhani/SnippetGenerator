@@ -1,0 +1,10 @@
+@prefix dcc: <https://ptb.de/dcc/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+dcc:formulaType a rdfs:Datatype ;
+    skos:definition "A data type to express formulae in a markup language such as MathML or LaTeX. The preferred syntax is Semantic MathML."@en ;
+    skos:editorialNote "harmonized spelling to OBO naming conventions (lower case, space separated)"@en ;
+    skos:prefLabel "Formel"@de,
+        "formula"@en .
+

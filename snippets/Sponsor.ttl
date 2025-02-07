@@ -1,0 +1,15 @@
+@prefix m4i: <http://w3id.org/nfdi4ing/metadata4ing#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+m4i:Sponsor a owl:NamedIndividual,
+        prov:Role ;
+    rdfs:seeAlso "https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/contributorType/#sponsor"^^xsd:anyURI ;
+    skos:definition "Person or organisation that issued a contract or under the auspices of which a work has been written, printed, published, developed, etc."@en ;
+    skos:prefLabel "Sponsor*in"@de,
+        "sponsor"@en ;
+    skos:scopeNote "Includes organisations that provide in-kind support, through donation, provision of people or a facility or instrumentation necessary for the development of the resource, etc."@en .
+

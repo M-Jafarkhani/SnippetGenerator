@@ -1,0 +1,22 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+dcat:DatasetSeries a owl:Class ;
+    rdfs:isDefinedBy dcat: ;
+    rdfs:subClassOf dcat:Dataset ;
+    skos:definition "A collection of datasets that are published separately, but share some common characteristics that groups them."@en ;
+    skos:editorialNote "changed by m4i: added skos:prefLabel, added german labels, removed redundant notes, extracted from DCAT3-Documentation https://www.w3.org/TR/vocab-dcat-3/#Class:Dataset_Series"@en ;
+    skos:prefLabel "Datensatzserie"@de,
+        "dataset series"@en .
+
+dcat:Dataset a owl:Class ;
+    rdfs:comment "A collection of data, published or curated by a single source, and available for access or download in one or more representations."@en ;
+    rdfs:isDefinedBy dcat: ;
+    skos:editorialNote "changed by m4i: added skos:prefLabel, added german labels, removed redundant notes, removed other languages than english in comment, label, changeNote and definition"@en ;
+    skos:prefLabel "Datensatz"@de,
+        "dataset"@en ;
+    skos:scopeNote "The notion of dataset in DCAT is broad and inclusive, with the intention of accommodating resource types arising from all communities. Data comes in many forms including numbers, text, pixels, imagery, sound and other multi-media, and potentially other types, any of which might be collected into a dataset."@en,
+        "This class describes the conceptual dataset. One or more representations might be available, with differing schematic layouts and formats or serializations."@en .
+
