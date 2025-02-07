@@ -1720,7 +1720,7 @@ pims-ii:Property rdf:type owl:Class ;
 pims-ii:QuantityValue rdf:type owl:Class ;
                       rdfs:subClassOf pims-ii:Value ;
                       skos:definition "Quantity value, i.e., a value that has a numerical magnitude and a physical unit"@en ;
-                      skos:editorialNote "changed by m4i: added skos:prefLabel, adjusted german labels, harmonized spelling to OBO naming conventions (lower case, space separated)" ;
+                      skos:editorialNote "changed by m4i: added skoabels, harmonized spelling to OBO naming conventions (lower case, space separated)" ;
                       skos:prefLabel "Größenwert"@de ,
                                      "quantity value"@en .
 
